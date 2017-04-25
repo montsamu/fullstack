@@ -9,41 +9,41 @@ PREREQUISITES:
 
 2. Setup and start Mongo in one command window:
 
-md \data\db
-c:\path\to\mongod.exe
+    md \data\db
+    c:\path\to\mongod.exe
 
 PACKAGES and CODE (NON-GIT APPROACH):
 
 1. In another command window, create project and install node packages:
 
-mkdir fullstack (or any project name <app> you choose)
-cd <app>
-npm init (all defaults except specify server.js instead of index.js for main server)
-npm install --save express
-npm install --save ejs
-npm install --save angular
-npm install --save mongoose (mongodb client)
-npm install --save-dev nodemon
+    mkdir fullstack (or any project name <app> you choose)
+    cd <app>
+    npm init (all defaults except specify server.js instead of index.js for main server)
+    npm install --save express
+    npm install --save ejs
+    npm install --save angular
+    npm install --save mongoose (mongodb client)
+    npm install --save-dev nodemon
 
 2. Develop the application:
 
-mkdir <app>/app, create <app>/app/index.html and <app>/app/app.js with the angular page html and code
-create <app>/models/Contact.js with the Contact model
-create <app>/routes/contacts.js with the /contacts route code
-create <app>/server.js with the express app code
-add <app>/package.json script "dev" "nodemon index.js"
+    mkdir <app>/app, create <app>/app/index.html and <app>/app/app.js with the angular page html and code
+    create <app>/models/Contact.js with the Contact model
+    create <app>/routes/contacts.js with the /contacts route code
+    create <app>/server.js with the express app code
+    add <app>/package.json script "dev" "nodemon index.js"
 
 PACKAGES and CODE (GIT APPROACH):
 
 1. If you started with cloning the Git repository, then:
 
-npm install
+    npm install
 
 RUNNING
 
 1. In <app>, run the development server:
 
-npm run dev
+    npm run dev
 
 2. Open your browser to localhost:3000 and use the application:
 
@@ -61,10 +61,10 @@ UNIT TESTING
 
 A. install the unit testing libraries:
 
-npm install --save-dev karma karma-jasmine jasmine-core karma-chrome-launcher
-npm install --save-dev angular-mocks angular-resource angular-route
-karma init (all defaults)
-npm install -g karma-cli
+    npm install --save-dev karma karma-jasmine jasmine-core karma-chrome-launcher
+    npm install --save-dev angular-mocks angular-resource angular-route
+    karma init (all defaults)
+    npm install -g karma-cli
 
 B. In karma.conf.js:
 
@@ -82,4 +82,4 @@ C. In package.json, add script "test" -> "karma start"
 
 2. Run the tests:
 
-npm run test
+    npm run test
