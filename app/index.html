@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Samuel Montgomery-Blinn fullstack coding exercise</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	</head>
+	<body>
+
+		<ng-view></ng-view>
+
+		<!-- Libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
+
+		<script src="app.js"></script>
+
+		<!-- Templates -->
+
+		<script type="text/ng-template" id="/contacts.html">
+
+			<div class="col-md-4">
+			<h3>Contact List:</h3>
+			<p>
+			<form class="form-inline">
+				<div class="form-group">
+					<label>Search</label>
+					<input type="text" ng-model="search" class="form-control"/>
+				</div>
+			</form>
+			</p>
+
+			<table class="table table-striped table-hover table-bordered">
+				<thead>
+					<tr>
+						<th ng-click="sort('firstName')">First Name <span ng-show="sortKey=='firstName' && !reverse">&#9650;</span><span ng-show="sortKey=='firstName' && reverse">&#9660;</span><span ng-show="sortKey!='firstName'">&nbsp;&nbsp;</span></th>
+						<th ng-click="sort('lastName')">Last Name <span ng-show="sortKey=='lastName' && !reverse">&#9650;</span><span ng-show="sortKey=='lastName' && reverse">&#9660;</span><span ng-show="sortKey!='lastName'">&nbsp;&nbsp;</span></th>
+						<th ng-click="sort('company')">Company <span ng-show="sortKey=='company' && !reverse">&#9650;</span><span ng-show="sortKey=='company' && reverse">&#9660;</span><span ng-show="sortKey!='company'">&nbsp;&nbsp;</span></th
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="contact in contacts | orderBy:sortKey:reverse | filter: search">
+					<td><a href="#/{{contact._id}}">{{ contact.firstName }} </a></td>
+					<td>{{ contact.lastName }}</td>
+					<td>{{ contact.company }}</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<p><form class="form-inline">
+				<div class="form-group">
+					<label>New</label>
+					<input type="text" ng-model="newContact" class="form-control"><button class="btn btn-default" ng-click="save();">Create</button>
+				</div>
+			</form></p>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="/contactDetails.html">
+			<div class="col-md-4">
+			<h3>Contact:</h3>
+			<form class="form-inline">
+				<table class="table table-hover">
+				<tr>
+				<td><label>First Name</label></td>
+				<td><input type="text" ng-model="contact.firstName" class="form-control"/></td>
+				</tr>
+				<tr>
+				<td><label>Last Name</label></td>
+				<td><input type="text" ng-model="contact.lastName" class="form-control"/></td>
+				</tr>
+				<tr>
+				<td><label>Address</label></td>
+				<td><input type="text" ng-model="contact.address" class="form-control"/></td>
+				</tr>
+				<tr>
+				<td><label>Company</label></td>
+				<td><div class="ui-widget"><input id="companies" type="text" ng-model="contact.company" class="form-control"/></div></td>
+				</tr>
+				</table>
+			<div class="form-group">
+			<button class="btn btn-default" ng-click="update()" onClick="this.blur();">Save</button>
+			<button class="btn btn-default" ng-click="remove()">Remove</button>
+			<a class="btn btn-default" href="/#/">Cancel</a>
+			</div>
+			</form>
+			</div>
+			<div class="col-md-4" ng-show="updatedContact">
+				<h3>Saved:</h3>
+				<table class="table table-hover">
+				<tr>
+				<td><label>First Name</label></td>
+				<td>{{ updatedContact.firstName }}</td>
+				</tr>
+				<tr>
+				<td><label>Last Name</label></td>
+				<td>{{ updatedContact.lastName }}</td>
+				</tr>
+				<tr>
+				<td><label>Address</label></td>
+				<td>{{ updatedContact.address }}</td>
+				</tr>
+				<tr>
+				<td><label>Company</label></td>
+				<td>{{ updatedContact.company }}</td>
+				</tr>
+				</table>
+			</div>
+		</script>
+
+	</body>
+</html>
+
