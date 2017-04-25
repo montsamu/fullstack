@@ -4,7 +4,8 @@
   "description": "Full stack coding exercise",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "karma start"
   },
   "author": "Samuel Montgomery-Blinn",
   "license": "ISC",
