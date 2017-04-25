@@ -87,7 +87,7 @@ The last saved data is now displayed on the right side of the screen.
 
 ### C. In package.json, add script "test" -> "karma start"
 
-# 2. Run the tests:
+## 2. Run the tests:
 ```
     npm run test
 ```
