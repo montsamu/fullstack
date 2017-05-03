@@ -91,3 +91,7 @@ The last saved data is now displayed on the right side of the screen.
 ```
     npm run test
 ```
+
+NOTE: There is an "extension" of this simple project which adds optional AWS S3 image storage here:
+
+https://github.com/montsamu/fullstack-s3
